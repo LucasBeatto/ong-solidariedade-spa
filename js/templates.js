@@ -6,10 +6,21 @@ export function templateInicio() {
                 Transformando vidas através da solidariedade
             </h2>
 
+        <picture>
+
+            <source
+                srcset="../imagens/ong.webp"
+                type="image/webp"
+            >
+
             <img
                 src="../imagens/ong.jpg"
                 alt="Voluntários entregando cestas básicas para famílias em ação solidária"
+                decoding="async"
+                fetchpriority="high"
             >
+        
+        </picture>
 
             <p>
                 A ONG Solidariedade trabalha para promover ações sociais, apoiar famílias em situação de vulnerabilidade e incentivar a participação da comunidade em projetos solidários.
@@ -139,6 +150,8 @@ export function templateCadastro() {
                         id="nome"
                         name="nome"
                         autocomplete="name"
+                        required
+                        aria-describedby="erroNome"
                     >
 
                     <small
@@ -157,6 +170,8 @@ export function templateCadastro() {
                         id="email"
                         name="email"
                         autocomplete="email"
+                        required
+                        aria-describedby="erroEmail"
                     >
 
                     <small
@@ -177,6 +192,9 @@ export function templateCadastro() {
                         placeholder="(00) 00000-0000"
                         maxlength="15"
                         inputmode="numeric"
+                        autocomplete="tel"
+                        required
+                        aria-describedby="erroTelefone"
                     >
 
                     <small
@@ -199,6 +217,8 @@ export function templateCadastro() {
                     <select
                         id="participacao"
                         name="participacao"
+                        required
+                        aria-describedby="erroParticipacao"
                     >
 
                         <option value="">
