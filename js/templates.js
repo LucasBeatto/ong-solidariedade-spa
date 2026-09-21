@@ -139,6 +139,8 @@ export function templateCadastro() {
                         id="nome"
                         name="nome"
                         autocomplete="name"
+                        required
+                        aria-describedby="erroNome"
                     >
 
                     <small
@@ -157,6 +159,8 @@ export function templateCadastro() {
                         id="email"
                         name="email"
                         autocomplete="email"
+                        required
+                        aria-describedby="erroEmail"
                     >
 
                     <small
@@ -177,6 +181,9 @@ export function templateCadastro() {
                         placeholder="(00) 00000-0000"
                         maxlength="15"
                         inputmode="numeric"
+                        autocomplete="tel"
+                        required
+                        aria-describedby="erroTelefone"
                     >
 
                     <small
@@ -199,6 +206,8 @@ export function templateCadastro() {
                     <select
                         id="participacao"
                         name="participacao"
+                        required
+                        aria-describedby="erroParticipacao"
                     >
 
                         <option value="">

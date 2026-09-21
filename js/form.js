@@ -60,6 +60,7 @@ export function inicializarFormulario() {
             if (!validarNome(nome.value)) {
 
                 mostrarErro(
+                    "nome",
                     "erroNome",
                     "Informe um nome com pelo menos 3 caracteres."
                 );
@@ -71,6 +72,7 @@ export function inicializarFormulario() {
             if (!validarEmail(email.value)) {
 
                 mostrarErro(
+                    "email",
                     "erroEmail",
                     "Informe um endereço de e-mail válido."
                 );
@@ -82,6 +84,7 @@ export function inicializarFormulario() {
             if (!validarTelefone(telefone.value)) {
 
                 mostrarErro(
+                    "telefone",
                     "erroTelefone",
                     "Informe um telefone válido."
                 );
@@ -95,6 +98,7 @@ export function inicializarFormulario() {
             )) {
 
                 mostrarErro(
+                    "participacao",
                     "erroParticipacao",
                     "Selecione uma forma de participação."
                 );
@@ -184,13 +188,29 @@ function aplicarMascaraTelefone(evento) {
 }
 
 
-function mostrarErro(id, mensagem) {
+function mostrarErro(
+    idCampo,
+    idErro,
+    mensagem
+) {
 
-    const elemento =
-        document.getElementById(id);
+    const campo = 
+        document.getElementById(idCampo);
+    
+    const erro =
+        document.getElementById(idErro);
+    
+    if (campo) {
+        
+        campo.setAttribute(
+            "aria-invalid",
+            "true"
+        );
+    }
 
-    if (elemento) {
-        elemento.textContent = mensagem;
+    if (erro) {
+
+        erro.textContent = mensagem;
     }
 }
 
@@ -203,6 +223,17 @@ function limparErros() {
 
             elemento.textContent = "";
 
+        });
+
+    document
+        .querySelectorAll(
+            "#formCadastro input, #formCadastro select"
+        )
+        .forEach(function(campo) {
+
+            campo.removeAttribute(
+                "aria-invalid"
+            );
         });
 }
 
