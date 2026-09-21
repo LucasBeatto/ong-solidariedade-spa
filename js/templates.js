@@ -6,10 +6,21 @@ export function templateInicio() {
                 Transformando vidas através da solidariedade
             </h2>
 
+        <picture>
+
+            <source
+                srcset="../imagens/ong.webp"
+                type="image/webp"
+            >
+
             <img
                 src="../imagens/ong.jpg"
                 alt="Voluntários entregando cestas básicas para famílias em ação solidária"
+                decoding="async"
+                fetchpriority="high"
             >
+        
+        </picture>
 
             <p>
                 A ONG Solidariedade trabalha para promover ações sociais, apoiar famílias em situação de vulnerabilidade e incentivar a participação da comunidade em projetos solidários.
