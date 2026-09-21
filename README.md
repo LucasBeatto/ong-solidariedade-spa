@@ -458,9 +458,13 @@ A aplicação será carregada no navegador.
 
 ## 🌐 Deploy
 
-A aplicação será publicada utilizando **GitHub Pages** após a integração da versão final na branch `main`.
+A aplicação está publicada através do Github Pages.
 
-O endereço público será registrado nesta documentação após a publicação da release estável.
+### Acessar a aplicação
+
+[🌐 ONG Solidariedade SPA] (https://lucasbeatto.github.io/ong-solidariedade-spa/)
+
+A versão publicada utiliza a branch `main` como fonte do deploy.
 
 ---
 
