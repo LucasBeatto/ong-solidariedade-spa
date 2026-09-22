@@ -434,25 +434,107 @@ Durante o desenvolvimento foram executados testes relacionados a:
 
 ---
 
-## ▶️ Executando o projeto
+## ▶️ Executando o projeto localmente
 
-Clone ou baixe o repositório.
+Clone ou baixe o repositório e abra a pasta no Visual Studio Code.
 
-Abra a pasta no Visual Studio Code.
-
-O arquivo principal da aplicação está localizado em:
+Para executar a versão de desenvolvimento, abra o arquivo:
 
 ```text
 html/index.html
 ```
 
-Utilizando a extensão **Live Server**, clique com o botão direito sobre esse arquivo e selecione:
+Com a extensão **Live Server** instalada, clique com o botão direito sobre o arquivo e selecione:
 
 ```text
 Open with Live Server
 ```
 
-A aplicação será carregada no navegador.
+A aplicação será aberta no navegador e poderá ser testada localmente.
+
+---
+
+## 📦 Dependências do projeto
+
+O projeto utiliza Node.js e npm apenas para o processo de preparação da versão de produção.
+
+Após clonar o repositório, instale as dependências com:
+
+npm install
+
+As dependências utilizadas para o processo de build são:
+
+• esbuild, utilizado para empacotar e minificar JavaScript e CSS;
+• html-minifier-terser, utilizado para minificar o HTML.
+
+A pasta node_modules não é versionada e está incluída no arquivo .gitignore.
+
+---
+
+## 🏗️ Build para produção
+
+Para gerar a versão otimizada da aplicação, execute:
+
+npm run build
+
+O comando executa o script:
+
+scripts/build.mjs
+
+Durante o processo são realizadas as seguintes operações:
+
+limpeza da build anterior;
+empacotamento dos módulos JavaScript;
+minificação do JavaScript;
+minificação do CSS;
+minificação do HTML;
+ajuste dos caminhos dos recursos;
+cópia das imagens JPG e WebP;
+geração automática da pasta docs.
+
+A estrutura resultante é:
+
+docs/
+├── index.html
+├── css/
+│   └── style.min.css
+├── js/
+│   └── app.min.js
+└── imagens/
+    ├── ong.jpg
+    └── ong.webp
+
+A pasta docs contém a versão preparada para ambiente de produção.
+
+Windows PowerShell
+
+Em sistemas nos quais a política de execução do PowerShell bloqueia o script npm.ps1, os mesmos comandos podem ser executados utilizando:
+
+npm.cmd install
+npm.cmd run build
+
+---
+
+### 🧪 Testes da build
+
+Após gerar a build, o arquivo:
+
+docs/index.html
+
+pode ser aberto com o Live Server.
+
+Foram verificados:
+
+• carregamento da SPA;
+• navegação entre as rotas;
+• funcionamento do formulário;
+• validação dos campos;
+• máscara de telefone;
+• armazenamento com localStorage;
+• persistência após atualização da página;
+• navegação por teclado;
+• ausência de erros no Console;
+• ausência de recursos com erro 404 na aba Network.
 
 ---
 
@@ -460,11 +542,17 @@ A aplicação será carregada no navegador.
 
 A aplicação está publicada através do Github Pages.
 
+A branch main contém a versão estável do projeto, enquanto a pasta:
+
+/docs
+
+é utilizada como origem da versão otimizada de produção.
+
+O GitHub Pages disponibiliza os arquivos minificados gerados pelo processo de build, incluindo HTML, CSS e JavaScript.
+
 ### Acessar a aplicação
 
 [🌐 ONG Solidariedade SPA] (https://lucasbeatto.github.io/ong-solidariedade-spa/)
-
-A versão publicada utiliza a branch `main` como fonte do deploy.
 
 ---
 
